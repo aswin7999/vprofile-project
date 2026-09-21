@@ -78,7 +78,7 @@ pipeline {
                       nexusUrl: '172.31.15.94:8081',
                       groupId: 'com.visualpathit',
                       version: "${env.BUILD_ID}",
-                      repository: 'vpro-release',
+                      repository: 'vprofile-release',
                       credentialsId: 'nexuslogin',
                       artifacts: [
                         [
