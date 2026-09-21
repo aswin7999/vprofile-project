@@ -99,7 +99,7 @@ pipeline {
     post {
         always {
             echo 'Slack Notification.'
-            slackSend channel: '#jenkincic',
+            slackSend channel: '#jenkinscic',
             color: COLOR_MAP[currentBuild.currentResult],
             slackSend (channel: '#jenkinscic', message: "Pipeline failed: ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info: ${env.BUILD_URL}")
         }
