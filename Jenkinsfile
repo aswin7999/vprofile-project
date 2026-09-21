@@ -81,12 +81,18 @@ pipeline {
                       repository: 'vpro-release',
                       credentialsId: 'nexuslogin',
                       artifacts: [
-                              [artifactId: 'vprofile-v2',
-                               classifier: '',
-                               file: 'target/vprofile-v2.war',
-                               type: 'war']
-            ]
-        )                                    // ✅ Must use closing parenthesis )
+                        [
+                           artifactId: 'vprofile-v2',
+                           classifier: '',
+                           file: 'target/vprofile-v2.war',
+                           type: 'war'
+                    ]
+                 ]
+              )
+           }
+        }
     }
-}
-            
+}               
+
+
+         
