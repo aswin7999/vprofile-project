@@ -70,23 +70,23 @@ pipeline {
                 }
             }
         }
-        stage("UploadArtifact") {
-            steps {
-                nexusArtifactUploader {
-            nexusVersion:'nexus3',
-            protocol: 'http',
-            nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
-            groupId: 'QA'
-            version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-            repository: "${RELEASE_REPO}",
-            credentialsId: "${NEXUS_LOGIN}",
-            artifact: [
-                [artifactId: 'vproapp',
-                 classifier: '',
-                 file: 'target/vprofile-v2.war',
-                 type: 'war']
+        stage("Upload to Nexus") {
+           steps {
+               nexusArtifactUploader(               // ✅ Must use opening parenthesis (
+                     nexusVersion: 'nexus3',
+                      protocol: 'http',
+                      nexusUrl: '172.31.15.94:8081',
+                      groupId: 'com.visualpathit',
+                      version: "${env.BUILD_ID}",
+                      repository: 'vpro-release',
+                      credentialsId: 'nexuslogin',
+                      artifacts: [
+                              [artifactId: 'vprofile-v2',
+                               classifier: '',
+                               file: 'target/vprofile-v2.war',
+                               type: 'war']
             ]
-            }
-        }
+        )                                    // ✅ Must use closing parenthesis )
     }
 }
+            
