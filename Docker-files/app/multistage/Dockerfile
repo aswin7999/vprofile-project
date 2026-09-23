@@ -1,5 +1,5 @@
 FROM maven:3.9-eclipse-temurin-11 AS build_image
-RUN git clone https://github.com/<aswin7999>/vprofile-project.git
+RUN git clone https://github.com/aswin7999/vprofile-project.git
 RUN cd vprofile-project && git checkout docker && mvn install
 
 FROM tomcat:9-jre11
