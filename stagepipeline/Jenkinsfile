@@ -127,10 +127,8 @@ pipeline {
                 }
             }
         }
-    }
-}
-
-    post {
+    }      
+ post {
         always {
             echo 'Slack1 Notification.'
             slackSend(
@@ -140,4 +138,4 @@ pipeline {
             )
         }
     }
-}
+}    
