@@ -131,7 +131,7 @@ pipeline {
 
     post {
         always {
-            echo 'Slack Notification.'
+            echo 'Slack1 Notification.'
             slackSend(
                 channel: '#jenkinscic',
                 color: 'danger',
